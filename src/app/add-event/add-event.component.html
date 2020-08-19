@@ -1,0 +1,21 @@
+<div class="input-group mb-3">
+  <input [(ngModel)]="eventInput" type="text" class="form-control" placeholder="Type your todo Events" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button (click)="onAdd()" class="btn btn-primary" type="button">Add</button>
+  </div>
+</div>
+<ul class="list-group">
+  <li *ngFor="let event of eventList" class="list-group-item ">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" (change)="onCheck(event)">
+          </div>
+        </div>
+        <span class="form-control" [ngStyle]="event.style">{{event.name}}</span>
+        <div class="input-group-append">
+          <button (click)="onDelete(event)" class="btn btn-outline-danger" type="button">Delete</button>
+        </div>
+    </div>
+  </li>
+</ul>
